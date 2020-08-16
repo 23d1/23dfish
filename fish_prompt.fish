@@ -5,7 +5,7 @@ function os_type
         case Linux
             printf " "
         case "*"
-            printf " "
+            printf "☢︎ "
     end
 end
 function _git_branch_name
@@ -104,7 +104,7 @@ function fish_prompt
   # The newline before prompts
   # echo ''
 
-   os_type
+  os_type
   show_ssh_status
   show_host
   show_cwd
