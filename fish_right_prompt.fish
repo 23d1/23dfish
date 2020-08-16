@@ -11,7 +11,7 @@ function fish_right_prompt
   if test "$THEME_23DFISH_HIDE_SSH_TAG" != 'yes'
     if [ -n "$SSH_CLIENT" ]
       if [ (id -u) = "0" ]
-        _prompt_segment white (set_color 0FF)"$USER"(set_color FFF)@(set_color FF0)(hostname)(set_color FFF)"  "(date "+%H:%M:%S") ' '
+        _prompt_segment white (set_color 0FF)"$USER"(set_color "FFF")@(set_color "FF0")(hostname)(set_color "FFF")"  "(date "+%H:%M:%S") ' '
       else
         _prompt_segment " "(date "+%H:%M:%S") ' '
       end
