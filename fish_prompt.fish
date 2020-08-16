@@ -1,4 +1,13 @@
-
+function os_type
+    switch (uname)
+        case Darwin
+            printf " "
+        case Linux
+            printf " "
+        case "*"
+            printf " "
+    end
+end
 function _git_branch_name
   echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
@@ -33,14 +42,6 @@ function _prompt_segment -d "Function to show a segment"
 end
 
 function show_ssh_status -d "Function to show the ssh tag"
-    switch (uname)
-        case Darwin
-            printf " "
-        case Linux
-            printf " "
-        case "*"
-            printf " "
-    end
   if test "$THEME_23DFISH_HIDE_SSH_TAG" != 'yes'
     if [ -n "$SSH_CLIENT" ]
       if [ (id -u) = "0" ]
@@ -103,6 +104,7 @@ function fish_prompt
   # The newline before prompts
   # echo ''
 
+   os_type
   show_ssh_status
   show_host
   show_cwd
