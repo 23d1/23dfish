@@ -93,7 +93,7 @@ function fish_prompt
   set fish_greeting
 
   # The newline before prompts
-  echo ''
+  # echo ''
 
   show_ssh_status
   show_host

@@ -16,6 +16,13 @@ function fish_mode_prompt --description 'Displays the current mode'
                 echo 🆅
         end
         set_color normal
-        printf " "
+        switch (uname)
+        case Darwin
+            printf " "
+        case Linux
+            printf " "
+        case "*"
+            printf " "
+        end
     end
 end
