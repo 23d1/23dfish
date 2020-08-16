@@ -53,17 +53,17 @@ function show_ssh_status -d "Function to show the ssh tag"
   end
 end
 
-function show_host -d "Show host & user name"
-  # Display [user & host] info
-  if test "$THEME_23DFISH_SHOW_HOST" = 'yes'
-    if [ (id -u) = "0" ]
-      echo -n (set_color red)
-    else
-      echo -n (set_color blue)
-    end
-    echo -n ''(hostname|cut -d . -f 1)ˇ$USER' ' (set color normal)
-  end
-end
+# function show_host -d "Show host & user name"
+#   # Display [user & host] info
+#   if test "$THEME_23DFISH_SHOW_HOST" = 'yes'
+#     if [ (id -u) = "0" ]
+#       echo -n (set_color red)
+#     else
+#       echo -n (set_color blue)
+#     end
+#     echo -n ''(hostname|cut -d . -f 1)ˇ$USER' ' (set color normal)
+#   end
+# end
 
 function show_cwd -d "Function to show the current working directory"
   if test "$theme_short_path" != 'yes' -a (prompt_pwd) != '~' -a (prompt_pwd) != '/'
@@ -106,7 +106,7 @@ function fish_prompt
 
   os_type
   show_ssh_status
-  show_host
+  # show_host
   show_cwd
   show_git_info
   show_prompt_char
