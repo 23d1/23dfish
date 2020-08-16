@@ -8,14 +8,6 @@ function fish_right_prompt
 
   # Timestamp
   set_color $fish_color_autosuggestion 2> /dev/null; or set_color 555
-  if test "$THEME_23DFISH_HIDE_SSH_TAG" != 'yes'
-    if [ -n "$SSH_CLIENT" ]
-      if [ (id -u) = "0" ]
-        _prompt_segment black white '(set_color yellow)$USER(set_color FFF)@(set_color purple)(hostname)(set_color white)(date  +%H:%M:%S")' ' '
-      else
-        _prompt_segment black white ' (date "+%H:%M:%S")' ' '
-      end
-    end
-  end
+  echo (date "+%H:%M:%S")
 
 end
