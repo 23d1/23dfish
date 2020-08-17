@@ -1,56 +1,58 @@
 function show_os_type
-    switch (uname)
-        case Android
-            printf " "
-        case Darwin
-            printf " "
-        case FreeBSD
-            printf " "
-        case Linux
-            switch (cat /proc/version)
-                case "*Arch*"
-                    printf " "
-                case "*Centos*"
-                    printf " "
-                case "*Debian*"
-                    printf " "
-                case "*Raspbian*"
-                    printf " "
-                case "*Elementary*"
-                    printf " "
-                case "*Fedora*"
-                    printf " "
-                case "*Gentoo*"
-                    printf " "
-                case "*Mageia*"
-                    printf " "
-                case "*Mint*"
-                    printf " "
-                case "*Mixos*"
-                    printf " "
-                case "*Manjaro*"
-                    printf " "
-                case "*Devuan*"
-                    printf " "
-                case "*Alpine*"
-                    printf " "
-                case "*Aosc*"
-                    printf " "
-                case "*OpenSUSE*"
-                    printf " "
-                case "*Sabayon*"
-                    printf " "
-                case "*Slackware*"
-                    printf " "
-                case "*Ubuntu*"
-                    printf " "
-                case "*"
-                    printf " "
-            end
-        case SunOS
-            printf " "
-        case "*"
-            printf "☢︎ "
+    if test "$THEME_23DFISH_SHOW_OS" = 'yes'
+        switch (uname)
+            case Android
+                printf " "
+            case Darwin
+                printf " "
+            case FreeBSD
+                printf " "
+            case Linux
+                switch (cat /proc/version)
+                    case "*Arch*"
+                        printf " "
+                    case "*Centos*"
+                        printf " "
+                    case "*Debian*"
+                        printf " "
+                    case "*Raspbian*"
+                        printf " "
+                    case "*Elementary*"
+                        printf " "
+                    case "*Fedora*"
+                        printf " "
+                    case "*Gentoo*"
+                        printf " "
+                    case "*Mageia*"
+                        printf " "
+                    case "*Mint*"
+                        printf " "
+                    case "*Mixos*"
+                        printf " "
+                    case "*Manjaro*"
+                        printf " "
+                    case "*Devuan*"
+                        printf " "
+                    case "*Alpine*"
+                        printf " "
+                    case "*Aosc*"
+                        printf " "
+                    case "*OpenSUSE*"
+                        printf " "
+                    case "*Sabayon*"
+                        printf " "
+                    case "*Slackware*"
+                        printf " "
+                    case "*Ubuntu*"
+                        printf " "
+                    case "*"
+                        printf " "
+                end
+            case SunOS
+                printf " "
+            case "*"
+                printf "☢︎ "
+        end
     end
 end
 function _git_branch_name
