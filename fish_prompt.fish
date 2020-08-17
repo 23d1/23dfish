@@ -1,9 +1,56 @@
 function os_type
+    # switch (uname)
+    #     case Darwin
+    #         printf " "
+    #     case Linux
+    #         printf " "
+    #     case "*"
+    #         printf "☢︎ "
+    # end
     switch (uname)
         case Darwin
             printf " "
         case Linux
-            printf " "
+            switch (hostnamectl)
+                case "*Arch*"
+                    printf " "
+                case "*Centos*"
+                    printf " "
+                case "*Debian*"
+                    printf " "
+                case "*Raspbian*"
+                    printf " "
+                case "*Elementary*"
+                    printf " "
+                case "*Fedora*"
+                    printf " "
+                case "*Gentoo*"
+                    printf " "
+                case "*Mageia*"
+                    printf " "
+                case "*Mint*"
+                    printf " "
+                case "*Mixos*"
+                    printf " "
+                case "*Manjaro*"
+                    printf " "
+                case "*Devuan*"
+                    printf " "
+                case "*Alpine*"
+                    printf " "
+                case "*Aosc*"
+                    printf " "
+                case "*OpenSUSE*"
+                    printf " "
+                case "*Sabayon*"
+                    printf " "
+                case "*Slackware*"
+                    printf " "
+                case "*Ubuntu*"
+                    printf " "
+                case "*"
+                    printf " "
+            end
         case "*"
             printf "☢︎ "
     end
