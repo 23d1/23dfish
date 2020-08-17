@@ -11,7 +11,7 @@ function fish_right_prompt
     if [ (id -u) = "0" ]
       echo -n (set_color red)
     else
-      echo -n (set_color 999)
+      echo -n (set_color 555)
     end
     echo -n ''$USER:(hostname|cut -d . -f 1)'' (set color normal)
   end
