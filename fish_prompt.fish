@@ -8,7 +8,7 @@ function show_os_type
             case FreeBSD
                 printf " "
             case Linux
-                switch (cat /etc/os-release | grep "^ID=*")
+                switch (cat /etc/os-release | grep "^ID=")
                     case "*arch*"
                         printf " "
                     case "*centos*"
