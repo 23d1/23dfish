@@ -9,48 +9,48 @@ function show_os_type
                 printf " "
             case Linux
                 switch (cat /etc/os-release | grep "^ID=*")
-                    case "*Arch*"
+                    case *arch*
                         printf " "
-                    case "*Centos*"
+                    case *centos*
                         printf " "
-                    case "*Debian*"
+                    case *debian*
                         printf " "
-                    case "*Raspbian*"
+                    case *raspbian*
                         printf " "
-                    case "*Elementary*"
+                    case *elementary*
                         printf " "
-                    case "*Fedora*"
+                    case *fedora*
                         printf " "
-                    case "*Gentoo*"
+                    case *gentoo*
                         printf " "
-                    case "*Mageia*"
+                    case *mageia*
                         printf " "
-                    case "*Mint*"
+                    case *mint*
                         printf " "
-                    case "*Mixos*"
+                    case *mixos*
                         printf " "
-                    case "*Manjaro*"
+                    case *manjaro*
                         printf " "
-                    case "*Devuan*"
+                    case *devuan*
                         printf " "
-                    case "*Alpine*"
+                    case *alpine*
                         printf " "
-                    case "*Aosc*"
+                    case *aosc*
                         printf " "
-                    case "*OpenSUSE*"
+                    case *opensuse*|*tumbleweed*
                         printf " "
-                    case "*Sabayon*"
+                    case *sabayon*
                         printf " "
-                    case "*Slackware*"
+                    case *slackware*
                         printf " "
-                    case "*Ubuntu*"
+                    case *ubuntu*
                         printf " "
-                    case "*"
+                    case *
                         printf " "
                 end
             case SunOS
                 printf " "
-            case "*"
+            case *
                 printf "☢︎ "
         end
     end
