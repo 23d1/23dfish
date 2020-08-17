@@ -1,15 +1,11 @@
-function os_type
-    # switch (uname)
-    #     case Darwin
-    #         printf " "
-    #     case Linux
-    #         printf " "
-    #     case "*"
-    #         printf "☢︎ "
-    # end
+function show_os_type
     switch (uname)
+        case Android
+            printf " "
         case Darwin
             printf " "
+        case FreeBSD
+            printf " "
         case Linux
             switch (cat /proc/version)
                 case "*Arch*"
@@ -51,6 +47,8 @@ function os_type
                 case "*"
                     printf " "
             end
+        case SunOS
+            printf " "
         case "*"
             printf "☢︎ "
     end
@@ -151,7 +149,7 @@ function fish_prompt
   # The newline before prompts
   # echo ''
 
-  os_type
+  show_os_type
   show_ssh_status
   # show_host
   show_cwd
