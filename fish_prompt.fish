@@ -37,8 +37,6 @@ function show_os_type
                         printf " "
                     case "*aosc*"
                         printf " "
-                    case "*opensuse*"
-                        printf " "
                     case "*opensuse*|*tumbleweed*"
                         printf " "
                     case "*sabayon*"
