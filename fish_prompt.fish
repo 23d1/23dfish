@@ -92,9 +92,9 @@ function show_ssh_status -d "Function to show the ssh tag"
   if test "$THEME_23DFISH_HIDE_SSH_TAG" != 'yes'
     if [ -n "$SSH_CLIENT" ]
       if [ (id -u) = "0" ]
-        _prompt_segment red white "  " ' '
+        _prompt_segment red white "  ssh" ' '
       else
-        _prompt_segment blue white "  " ' '
+        _prompt_segment blue white "  ssh" ' '
       end
     end
   end
