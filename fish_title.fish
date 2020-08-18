@@ -4,4 +4,5 @@ function fish_title
     hostname
     echo ' ' (status current-command) ' '
     pwd
+    echo ' ' $argv[1]
 end
