@@ -6,7 +6,7 @@
 #
 # function edin_normal
 #   set_color normal
-#
+# end
 
 function fish_greeting
 printf "
@@ -14,7 +14,6 @@ printf "
 
 
 
-    ☢︎ 23d.1——AS                                                                                                                                                 © 2020
 
 
 
@@ -37,11 +36,11 @@ printf "
                                                    ╣╣╬╣╣╬╬║╬║▒╩░╚╬░╠▓╣╬╣╬▓▓▓▓▓██▓▓▓▓▓████▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓╣╣
                                                   ▒╬╣╣╬╬╬▒╠╠╣▒▒░░░╙╠▓▒▓╣╬╬╬╣╣╣╣╣╣╬╣╣╬╣╣╣▓▓▓▓▓▓▓▓╣╬╬╠╠╠╠╠╬╣▓╣╣
                                                    ╬╣╬╬╬║╠╬╠╠╬╩▒░░▄╣╣╣╣╣╬▒╣╬╠╠╬╩└└╙╚▒╩╬╠╠╣╣╬╬╬╬╬╬╬╝╛ ╙╙╝╝╩╣╣╠║
-                                                   ▓╬╣╬▒╠║╬╬╠╠░░▄▓╬╣╩╝╝╝▀╙└         ░░╚╩╠╠║╣╬╠╬╩└      ░   └╠║
-                                                     ╩╣▓▓▒▒░░░╔▓╬╬╬╩                 ╪╔░╠╣╣▓╣╬╛      ░ ░   ╔╣║
-                                                      ╠╣▌╚╚╚░░▌╬╬╬╠╣░               ╕ ╔▒║▌╬▓▓╬       ░░   ╔╣╣
-                                                       ▓▒░░░░▓▒╬║╠╣╣▒            ░░╪░╔╩░║▀╬╫▌▀▒░░░░░ ░░░ ░║▓╣
-                                                       ▓▓▓▓▓╣╬╬╬╣║║▓▓░░┌░─     ┌░░▄╗▓░░░╦╣▓▀▀ ╬▓╗▄░░╔░░░ ╗▓▓╣
+                                                   ▓╬╣╬▒╠║╬╬╠╠░░▄▓╬╣╩╝╝╝▀╙└         ░░╚╩╠╠║╣╬╠╬╩└          └╠║
+                                                     ╩╣▓▓▒▒░░░╔▓╬╬╬╩                 ╪╔░╠╣╣▓╣╬╛            ╔╣║
+                                                      ╠╣▌╚╚╚░░▌╬╬╬╠╣░               ╕ ╔▒║▌╬▓▓╬            ╔╣╣
+                                                       ▓▒░░░░▓▒╬║╠╣╣▒            ░░╪░╔╩░║▀╬╫▌▀▒░░        ░║▓╣
+                                                       ▓▓▓▓▓╣╬╬╬╣║║▓▓░░┌░─     ┌░░▄╗▓░░░╦╣▓▀▀ ╬▓╗▄░░╔    ╗▓▓╣
                                                          ╣╣╬╬╣╬╬╬╣╠╬╠▓▓▄░┌░▄▄▄▄╣▓╣╣▓▒░░╠╣▀░   ▐╚╣╬╣▓▓▓▄▄▓▓╬╬
                                                            ▒╣╬╣╣╬▓╬╬╬╣╣╣╝╬╬╚╚░╠╠║▒╠╩╠░╣╣┘     ╙▒╠╠╠╙╠╠╠╠╠╠╣╣
                                                              ╬╬╬╬╠╣╠║╠║▓╬╬╚╠╬╣╠╠╠╠▒╬░╣╜     ░  ▒║▒╠╠╠╠╬╬╣╬╬
@@ -57,7 +56,61 @@ printf "
 
 
 
-    → Proceed? ————————————  "(set_color yellow)"23d.1"(set_color normal)" / exec ↓ "(set_color cyan)"$USER"(set_color normal)":"(set_color 99F)(prompt_hostname)(set_color normal)(set_color 0F0)" ☢︎"(set_color normal)"
-
 "
+printf "    → Proceed? ————————————  "(set_color yellow)"23d.1"(set_color normal)" / exec ↓ "(set_color cyan)"$USER"(set_color normal)":"(set_color 99F)(prompt_hostname)(set_color normal)(set_color 0F0)" "
+switch (uname)
+    case Android
+        echo ""
+    case Darwin
+        echo ""
+    case FreeBSD
+        echo ""
+    case Linux
+        switch (cat /etc/os-release | grep "^ID=")
+            case "*arch*"
+                echo ""
+            case "*centos*"
+                echo ""
+            case "*debian*"
+                echo ""
+            case "*raspbian*"
+                echo ""
+            case "*elementary*"
+                echo ""
+            case "*fedora*"
+                echo ""
+            case "*gentoo*"
+                echo ""
+            case "*mageia*"
+                echo ""
+            case "*mint*"
+                echo ""
+            case "*mixos*"
+                echo ""
+            case "*manjaro*"
+                echo ""
+            case "*devuan*"
+                echo ""
+            case "*alpine*"
+                echo ""
+            case "*aosc*"
+                echo ""
+            case "*opensuse*|*tumbleweed*"
+                echo ""
+            case "*sabayon*"
+                echo ""
+            case "*slackware*"
+                echo ""
+            case "*ubuntu*"
+                echo ""
+            case "*"
+                echo ""
+        end
+    case SunOS
+        echo ""
+    case "*"
+        echo "☢︎"
+end
+printf "
+"(set_color normal)
 end
