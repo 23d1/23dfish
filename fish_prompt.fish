@@ -757,8 +757,12 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
     and set -l display_hostname
 
     if set -q display_user
-        __23dfish_start_segment $color_username
-        echo -ns (whoami)
+        if [ "$theme_hide_ssh_tag" = 'yes' ]
+            echo "SSH"
+        else
+            __23dfish_start_segment $color_username
+            echo -ns (whoami)
+        end
     end
 
     if set -q display_sudo_user

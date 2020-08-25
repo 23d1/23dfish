@@ -1,8 +1,8 @@
 function 23dfish_toggle_ssh_tag -d "Toggle SSH tag display."
-  if test "$THEME_23DFISH_HIDE_SSH_TAG" = 'yes'
-    set -e THEME_23DFISH_HIDE_SSH_TAG
+  if test "$theme_hide_ssh_tag" = 'yes'
+    set -e theme_hide_ssh_tag
   else
-    set -g THEME_23DFISH_HIDE_SSH_TAG yes
+    set -g theme_hide_ssh_tag yes
   end
   return 0
 end
