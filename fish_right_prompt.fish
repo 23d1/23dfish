@@ -1,23 +1,87 @@
-function fish_right_prompt
+# You can override some default right prompt options in your config.fish:
+#     set -g theme_date_format "+%a %H:%M"
+#     set -g theme_date_timezone America/Los_Angeles
 
-  # Last command status
-  set -l code $status
-  if test $code != 0
-    echo -s (set_color red) ' ' $code ' '
-  end
+function __23dfish_cmd_duration -S -d 'Show command duration'
+    [ "$theme_display_cmd_duration" = "no" ]
+    and return
 
-  # Display [user & host] info
-  if test "$THEME_23DFISH_SHOW_HOST" = 'yes'
-    if [ (id -u) = "0" ]
-      echo -n (set_color red)
+    [ -z "$CMD_DURATION" -o "$CMD_DURATION" -lt 100 ]
+    and return
+
+    if [ "$CMD_DURATION" -lt 5000 ]
+        echo -ns $CMD_DURATION 'ms'
+    else if [ "$CMD_DURATION" -lt 60000 ]
+        __23dfish_pretty_ms $CMD_DURATION s
+    else if [ "$CMD_DURATION" -lt 3600000 ]
+        set_color $fish_color_error
+        __23dfish_pretty_ms $CMD_DURATION m
     else
-      echo -n (set_color 555)
+        set_color $fish_color_error
+        __23dfish_pretty_ms $CMD_DURATION h
     end
-    echo -n ''$USER:(hostname|cut -d . -f 1)'' (set color normal)
-  end
 
-  # Timestamp
-  set_color $fish_color_autosuggestion 2> /dev/null; or set_color 999
-  echo '  '(date "+%H:%M:%S")
+    set_color $fish_color_normal
+    set_color $fish_color_autosuggestion
 
+    [ "$theme_display_date" = "no" ]
+    or echo -ns ' ' $__23dfish_left_arrow_glyph
+end
+
+function __23dfish_pretty_ms -S -a ms -a interval -d 'Millisecond formatting for humans'
+    set -l interval_ms
+    set -l scale 1
+
+    switch $interval
+        case s
+            set interval_ms 1000
+        case m
+            set interval_ms 60000
+        case h
+            set interval_ms 3600000
+            set scale 2
+    end
+
+    switch $FISH_VERSION
+        case 2.0.\* 2.1.\* 2.2.\* 2.3.\*
+            # Fish 2.3 and lower doesn't know about the -s argument to math.
+            math "scale=$scale;$ms/$interval_ms" | string replace -r '\\.?0*$' $interval
+        case 2.\*
+            # Fish 2.x always returned a float when given the -s argument.
+            math -s$scale "$ms/$interval_ms" | string replace -r '\\.?0*$' $interval
+        case \*
+            math -s$scale "$ms/$interval_ms"
+            echo -ns $interval
+    end
+end
+
+function __23dfish_timestamp -S -d 'Show the current timestamp'
+    [ "$theme_display_date" = "no" ]
+    and return
+
+    set -q theme_date_format
+    or set -l theme_date_format "+%H:%M:%S"
+
+    echo -n ' '
+    env TZ="$theme_date_timezone" date $theme_date_format
+end
+
+function fish_right_prompt -d '23dfish is all about the right prompt'
+    set -l __23dfish_left_arrow_glyph ''
+
+    set_color $fish_color_autosuggestion
+
+    # # Display [user & host] info
+    # if test "$THEME_23DFISH_SHOW_HOST" = 'yes'
+    #     if [ (id -u) = "0" ]
+    #         echo -n (set_color red)
+    #     else
+    #         echo -n (set_color 555)
+    #     end
+    #     echo -n ''$USER:(hostname|cut -d . -f 1)'' (set color normal)
+    # end
+
+    __23dfish_cmd_duration
+    __23dfish_timestamp
+    set_color normal
 end

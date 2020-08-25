@@ -1,8 +1,34 @@
+# You can override some default title options in your config.fish:
+#     set -g theme_title_display_process no
+#     set -g theme_title_display_path no
+#     set -g theme_title_display_user yes
+#     set -g theme_title_use_abbreviated_path no
+
+function __23dfish_title_user -S -d 'Display actual user if different from $default_user'
+    if [ "$theme_title_display_user" != 'no' ]
+        if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
+            set -l IFS .
+            hostname | read -l hostname __
+            echo -ns (whoami) '@' $hostname ' '
+        end
+    end
+end
+
 function fish_title
-    # Customize the title bar of the terminal window.
-    echo "$USER@"
-    hostname
-    echo ' ' (status current-command) ' '
-    pwd
-    echo ' ' $argv[1]
+    __23dfish_title_user
+
+    if [ "$theme_title_display_process" != 'no' ]
+        echo $_
+
+        [ "$theme_title_display_path" != 'no' ]
+        and echo ' '
+    end
+
+    if [ "$theme_title_display_path" != 'no' ]
+        if [ "$theme_title_use_abbreviated_path" = 'no' ]
+            echo $PWD
+        else
+            prompt_pwd
+        end
+    end
 end
