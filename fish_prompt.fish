@@ -753,7 +753,7 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
     [ "$theme_display_sudo_user" = 'yes' -a -n "$SUDO_USER" ]
     and set -l display_sudo_user
 
-    [ "$theme_display_hostname" = 'yes' -o \( "$theme_display_hostname" != 'no' -a -n "$SSH_CLIENT" \) ]
+    [ "$theme_hide_ssh_tag" = 'yes' -o \( "$theme_display_hostname" != 'no' -a -n "$SSH_CLIENT" \) ]
     and set -l display_hostname
 
     if set -q display_user
