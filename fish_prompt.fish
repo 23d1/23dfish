@@ -757,6 +757,9 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
     and set -l display_hostname
 
     if set -q display_user
+        if [ "$SSH_CLIENT" ]
+            echo -ns $ssh_glyph ' '
+        end
         __23dfish_start_segment $color_username
         echo -ns (whoami)
     end
@@ -776,9 +779,6 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
             # reset colors without starting a new segment...
             # (so we can have a bold username and non-bold hostname)
             set_color normal
-            if [ "$SSH_CLIENT" ]
-                echo -ns $ssh_glyph ' '
-            end
             if [ "$theme_color_scheme" != '23d' ]
                 set_color -b $color_hostname[1] $color_hostname[2..-1]
                 echo -ns ':' (prompt_hostname)
