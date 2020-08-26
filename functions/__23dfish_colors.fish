@@ -578,8 +578,8 @@ function __23dfish_colors -S -a color_scheme -d 'Define colors used by 23dfish'
       set -x color_os                       $black $white
       set -x color_path                     $cyan[2] $cyan[2]
       set -x color_path_basename            $cyan[1] $cyan[1]
-      set -x color_path_nowrite             $red[3] $red[1]
-      set -x color_path_nowrite_basename    $red[3] $red[1] --bold
+      set -x color_path_nowrite             $red[1] $red[2]
+      set -x color_path_nowrite_basename    $red[1] $red[3] --bold
 
       set -x color_repo                     $green[3] $green[1]
       set -x color_repo_work_tree           $grey[3] $white --bold
