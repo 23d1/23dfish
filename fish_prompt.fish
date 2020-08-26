@@ -797,7 +797,7 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
     set -q display_user
     or set -q display_sudo_user
     or set -q display_hostname
-    and echo -ns ' '
+    # and echo -ns ' '
 end
 
 
