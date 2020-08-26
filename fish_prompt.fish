@@ -758,9 +758,9 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
 
     if set -q display_user
         if [ "$SSH_CLIENT" ]
-            echo ' '
+            echo -n ' '
             set_color -b $color_path_basename
-            echo ' ' $ssh_glyph ' '
+            echo -n ' ' $ssh_glyph ' '
         end
         __23dfish_start_segment $color_username
         echo -ns (whoami)
