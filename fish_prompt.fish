@@ -57,6 +57,7 @@
 
 function __23dfish_prompt_os
     if test "$theme_show_os" = 'yes'
+        set_color normal
         if [ "$theme_color_scheme" != '23d' ]
             set_color -b $color_os
             printf " "
