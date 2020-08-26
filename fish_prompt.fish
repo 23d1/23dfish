@@ -447,19 +447,26 @@ function __23dfish_path_segment -S -a segment_dir -d 'Display a shortened form o
             if not [ -w "$segment_dir" ]
                 echo -n $lock_glyph ''
             else
+                set_color $color_path_basename
                 echo -n $folder_glyph ''
+                set_color $color_path
             end
             set directory '/'
         case "$HOME"
             set directory $home_glyph ' ~'
         case "$HOME/*"
-            set parent $home_sub_glyph (__23dfish_pretty_parent "$segment_dir")
+            set_color $color_path_basename
+            echo -n $home_sub_glyph' '
+            set_color $color_path
+            set parent (__23dfish_pretty_parent "$segment_dir")
             set directory (__23dfish_basename "$segment_dir")
         case '*'
             if not [ -w "$segment_dir" ]
                 echo -n $lock_glyph ''
             else
+                set_color $color_path_basename
                 echo -n $folder_glyph ''
+                set_color $color_path
             end
             set parent (__23dfish_pretty_parent "$segment_dir")
             set directory (__23dfish_basename "$segment_dir")
