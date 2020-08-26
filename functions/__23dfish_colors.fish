@@ -563,6 +563,7 @@ function __23dfish_colors -S -a color_scheme -d 'Define colors used by 23dfish'
       set -l brown    bf5e00 803f00 4d2600
       set -l grey     cccccc 999999 333333
       set -l cyan     00ffff 009999 003333
+      set -l yellow   ffff00 cccc00 999900
       set -l white    ffffff
       set -l black    000000
       set -l ruby_red af0000
@@ -571,6 +572,8 @@ function __23dfish_colors -S -a color_scheme -d 'Define colors used by 23dfish'
       set -x color_initial_segment_exit     $black $red[2] --bold
       set -x color_initial_segment_su       $black $green[2] --bold
       set -x color_initial_segment_jobs     $black $blue[3] --bold
+
+      set -x color_colon                    $yellow[3] $yellow[1]
 
       set -x color_os                       $black $white
       set -x color_path                     $cyan[2] $cyan[2]
@@ -589,8 +592,8 @@ function __23dfish_colors -S -a color_scheme -d 'Define colors used by 23dfish'
 
       set -x color_vagrant                  $blue[1] $white --bold
       set -x color_k8s                      $green[2] $white --bold
-      set -x color_username                 $grey[1] $blue[3] --bold
-      set -x color_hostname                 $grey[1] $blue[3]
+      set -x color_username                 $grey[1] $blue[1] --bold
+      set -x color_hostname                 $grey[1] $blue[2]
       set -x color_rvm                      $ruby_red $grey[1] --bold
       set -x color_nvm                      $green[1] $white --bold
       set -x color_virtualfish              $blue[2] $grey[1] --bold
