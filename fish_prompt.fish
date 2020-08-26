@@ -758,7 +758,9 @@ function __23dfish_prompt_user -S -d 'Display current user and hostname'
 
     if set -q display_user
         if [ "$SSH_CLIENT" ]
-            echo -ns ' '
+            if [ "$theme_color_scheme" = '23d' ]
+                echo -ns ' '
+            end
             set_color -b $color_path_basename
             set_color $color_initial_segment_jobs
             echo -ns ' ' $ssh_glyph ' '
