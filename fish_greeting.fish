@@ -106,56 +106,56 @@ printf "
 printf "    → Proceed? ————————————  "(set_color yellow)"23d.1"(set_color normal)" / exec ↓ "(set_color cyan)"$USER"(set_color normal)":"(set_color 99F)(prompt_hostname)(set_color normal)(set_color 0F0)" "
 switch (uname)
     case Android
-        echo $android_glyph
+        echo ""
     case Darwin
-        echo $apple_glyph
+        echo ""
     case FreeBSD
-        echo $freebsd_glyph
+        echo ""
     case Linux
         switch (cat /etc/os-release | grep "^ID=")
-        case "*arch*|*arco*"
-                echo $linux_arch_glyph
+            case "*arch*|*arco*"
+                echo ""
             case "*centos*"
-                echo $linux_centos_glyph
+                echo ""
             case "*debian*"
-                echo $linux_debian_glyph
+                echo ""
             case "*raspbian*"
-                echo $linux_raspbian_glyph
+                echo ""
             case "*elementary*"
-                echo $linux_elementary_glyph
+                echo ""
             case "*fedora*"
-                echo $linux_fedora_glyph
+                echo ""
             case "*gentoo*"
-                echo $linux_gentoo_glyph
+                echo ""
             case "*mageia*"
-                echo $linux_mageia_glyph
+                echo ""
             case "*mint*"
-                echo $linux_mint_glyph
-            case "*nixos*"
-                echo $linux_nixos_glyph
+                echo ""
+            case "*mixos*"
+                echo ""
             case "*manjaro*"
-                echo $linux_manjaro_glyph
+                echo ""
             case "*devuan*"
-                echo $linux_devuan_glyph
+                echo ""
             case "*alpine*"
-                echo $linux_alpine_glyph
+                echo ""
             case "*aosc*"
-                echo $linux_aosc_glyph
+                echo ""
             case "*opensuse*|*tumbleweed*"
-                echo $linux_opensuse_glyph
+                echo ""
             case "*sabayon*"
-                echo $linux_sabayon_glyph
+                echo ""
             case "*slackware*"
-                echo $linux_slackware_glyph
+                echo ""
             case "*ubuntu*"
-                echo $linux_ubuntu_glyph
+                echo ""
             case "*"
-                echo $linux_glyph
+                echo ""
         end
     case SunOS
-        echo $sunos_glyph
+        echo ""
     case "CYGWIN_NT-*|MSYS_NT-*"
-        echo $windows_glyph
+        echo ""
     case "*"
         echo "☢︎"
 end
