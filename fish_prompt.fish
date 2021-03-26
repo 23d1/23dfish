@@ -423,7 +423,7 @@ function __23dfish_start_segment -S -d 'Start a prompt segment'
         set __23dfish_current_bg $bg
     else
         set_color $__23dfish_current_bg
-        echo -ns ' '
+        echo -ns ''
         set_color $fg $argv
     end
 end
