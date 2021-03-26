@@ -117,9 +117,9 @@ function __23dfish_prompt_os
             case "*"
                 printf "☢︎"
         end
-        if [ "$theme_color_scheme" != '23d' ]
+        # if [ "$theme_color_scheme" != '23d' ]
             printf " "
-        end
+        # end
         set_color normal
     end
 end
