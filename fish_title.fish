@@ -8,8 +8,8 @@ function __23dfish_title_user -S -d 'Display actual user if different from $defa
     if [ "$theme_title_display_user" != 'no' ]
         if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
             set -l IFS .
-            hostname | read -l hostname __
-            echo -ns (whoami) '@' $hostname ' '
+            uname -n | read -l host __
+            echo -ns (whoami) '@' $host ' '
         end
     end
 end
