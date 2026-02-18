@@ -140,7 +140,7 @@ function __23dfish_glyphs -S -d 'Define glyphs used by 23dfish'
     set -x home_sub_glyph                  \uF07C # 
     set -x folder_glyph                    \uF115 # 
     set -x etc_glyph                       \uF013 # 
-    set -x network_glyph                   \uF5A7 # 
+    # set -x network_glyph                   \uF5A7 # 
     set -x load_glyph                      \uF080 # 
     set -x swap_glyph                      \uF464 # 
     set -x ram_glyph                       \uF0E4 # 
