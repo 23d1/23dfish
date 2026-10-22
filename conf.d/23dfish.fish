@@ -8,16 +8,10 @@ function __23dfish_fetch_motd
     or echo "23dfish: failed to download motd.jpg" >&2
 end
 
-# Install artem with Homebrew when available, otherwise download a
-# prebuilt binary into $__fish_config_dir/23dfish/bin. Skipped if
-# artem is already on PATH.
+# Download a prebuilt artem into $__fish_config_dir/23dfish/bin,
+# unless one is already on PATH.
 function __23dfish_fetch_artem
     type -q artem; and return
-
-    if type -q brew
-        brew install finefindus/tap/artem; and return
-        echo "23dfish: brew install failed, downloading artem instead" >&2
-    end
 
     set -l artem_version v3.0.0
     set -l arch
