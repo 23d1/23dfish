@@ -15,8 +15,9 @@ printf "
 # artem $OMF_PATH/themes/23dfish/motd.jpg -s 76 --centerX -c "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>|,.-#+!\$%&/()=?*'_:; "
 set -l motd_image $__fish_config_dir/23dfish/motd.jpg
 set -q theme_motd_image; and set motd_image $theme_motd_image
-if type -q artem; and test -f "$motd_image"
-    artem $motd_image -s 76 --centerX -c 0
+set -l artem_bin (command -s artem; or echo $__fish_config_dir/23dfish/bin/artem)
+if test -x "$artem_bin"; and test -f "$motd_image"
+    $artem_bin $motd_image -s 76 --centerX -c 0
 end
 printf "
 
